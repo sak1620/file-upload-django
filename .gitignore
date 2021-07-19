@@ -1,0 +1,11 @@
+*.egg-info
+*.pot
+*.py[co]
+.tox/
+__pycache__
+*/__pycache__/*
+*/migrations/*
+user/migrations/*
+*/media/*
+media/*
+.vscode/*

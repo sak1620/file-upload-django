@@ -1,0 +1,57 @@
+{% load static %}
+
+
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <img alt="image" class="rounded-circle" style="height: 20px;width: 20px;" src="{% static 'logo/logo.png' %}" />
+                    <span style="font-size: 20px;font-weight: 700;color: #a7b1c2;">File Upload by Shreya Alok</span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="text-muted text-xs block">Logged-in User</span>
+                        <span class="block m-t-xs font-bold">Hello! {{ user }}</span>
+                        <!-- <span class="text-muted text-xs block">{{ user.groups.all.0 }}</span> -->
+                    </a>
+                </div>
+                <div class="logo-element">
+                    <img alt="image" style="height:36px;" class="rounded-circle" src="{% static 'logo/logo.png' %}" />
+                </div>
+            </li>
+
+            <li id="side_home">
+                <a href="{% url 'adminIndex' %}"><i class="fa fa-home fa-lg"></i><span
+                        class="nav-label">Home</span></a>
+            </li>
+
+            <li id="side_upload">
+                <a href="{% url 'file_upload' %}"><i class="fa fa-hand-o-up fa-lg"></i><span
+                        class="nav-label">File Upload</span></a>
+            </li>
+
+
+        </ul>
+
+    </div>
+</nav>
+
+<script>
+    $(document).ready(function () {
+
+        var page_name = "{{page_name}}";
+        // console.log(page_name)
+        page_name = page_name.split(",");
+        console.log(page_name)
+        if (page_name[0] == "0") {
+            $("#" + page_name[1]).attr("class", "active");
+        } else {
+            // console.log("second", page_name[1], page_name[2]);
+            $("#" + page_name[1]).children("a").click();
+            $("#" + page_name[2]).attr("class", "active");
+
+        }
+    });
+
+
+
+</script>

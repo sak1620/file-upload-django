@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>File Upload</title>
+
+    {% load static %}
+
+    <link rel="icon" href="{% static 'logo/logo.png' %}"/>
+
+    <link rel="stylesheet" href="{% static 'base/css/bootstrap.min.css' %}">
+    <link href="{% static 'base/css/datatables.min.css' %}" rel="stylesheet">
+    <link href="{% static 'base/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'base/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'base/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'base/css/font-awesome.min.css' %}" rel="stylesheet">
+    <style>
+        /* ---- reset ---- */
+
+body {
+  margin: 0;
+  font:normal 75% Arial, Helvetica, sans-serif;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background-color: #b61924; */
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+/* ---- stats.js ---- */
+
+.count-particles{
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13E8E9;
+  font-size: .8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.js-count-particles{
+  font-size: 1.1em;
+}
+
+#stats,
+.count-particles{
+  -webkit-user-select: none;
+}
+
+#stats{
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+
+.count-particles{
+  border-radius: 0 0 3px 3px;
+}
+    </style>
+
+</head>
+
+<body class="gray-bg">
+    <div id="particles-js"></div>
+    <div class="wrapper wrapper-content animated fadeInRight" style="max-width: 800px;z-index: 100;margin: 0 auto;">
+
+        <div class="row">
+
+
+
+            <div class="col-md-6 col-md-offset-3">
+                <div style="margin-top:5vh; text-align: center;">
+
+                    <img alt="image" class="" src="{% static 'logo/logo.png' %}" style="margin-bottom: 20px;height: 15vh;width: 13vw">
+
+                </div>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div style="text-align:center;">
+                            <span style="font-size:16px;font-weight:600;">File Upload</span>
+                        </div>
+
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+
+
+
+
+                            <div class="col-sm-12">
+                                <h3 class="m-t-none m-b">Sign in</h3>
+                                <!-- <p>Sign in today for more expirience.</p> -->
+                                <form role="form" action="../login/" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-group"><label>Username</label> <input type="text"
+                                            class="form-control" name="username" placeholder="Username" required="">
+                                    </div>
+                                    <div class="form-group"><label>Password</label> <input type="password"
+                                            class="form-control" name="password" placeholder="Password" required="">
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"
+                                            style="background-color: #0092E4 ;"><strong>Log
+                                                in</strong></button>
+                                        <label> <a href="../password-reset/">
+                                                <small>Forgot password?</small>
+                                            </a> </label>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <center>
+                <div class="row">
+                    <!-- <div class="col-md-12">
+                    COPYRIGHT © 2020-21 File Upload, ALL RIGHTS RESERVED
+                </div> -->
+                </div>
+            </center>
+
+            <script src="{% static 'base/js/jquery-2.1.1.js' %}"></script>
+            <script src="{% static 'base/js/jquery-ui-1.10.4.min.js' %}"></script>
+            <script src="{% static 'base/js/bootstrap.min.js' %}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+
+            <script>
+
+                /* ---- particles.js config ---- */
+
+particlesJS("particles-js", 
+{
+    "particles": {
+  "number": {
+    "value": 50,
+    "density": {
+      "enable": true,
+      "value_area": 600 // Denser the smaller the number.
+    }
+  },
+  "color": { // The color for every node, not the connecting lines.
+    "value": "#01579b" // Or use an array of colors like ["#9b0000", "#001378", "#0b521f"]
+  },
+  "shape": {
+      "type": "circle", // Can show circle, edge (a square), triangle, polygon, star, img, or an array of multiple.
+      "stroke": { // The border
+        "width": 1,
+        "color": "#145ea8"
+      },
+      "polygon": { // if the shape is a polygon
+        "nb_sides": 5
+      },
+      "image": { // If the shape is an image
+        "src": "",
+        "width": 100,
+        "height": 100
+      }
+  },
+  "opacity": {
+    "value": 0.7,
+    "random": true
+  },
+  "size": {
+    "value": 10,
+    "random": true
+  },
+  "line_linked": {
+    "enable": true,
+    "distance": 200, // The radius before a line is added, the lower the number the more lines.
+    "color": "#007ecc",
+    "opacity": 0.5,
+    "width": 2
+  },
+  "move": {
+    "enable": true,
+    "speed": 2,
+    "direction": "top", // Move them off the canvas, either "none", "top", "right", "bottom", "left", "top-right", "bottom-right" et cetera...
+    "random": true,
+    "straight": false, // Whether they'll shift left and right while moving.
+    "out_mode": "bounce", // What it'll do when it reaches the end of the canvas, either "out" or "bounce".
+    "bounce": true,
+    "attract": { // Make them start to clump together while moving.
+      "enable": true,
+      "rotateX": 600,
+      "rotateY": 1200
+    }
+  }
+}
+}
+);
+
+
+/* ---- stats.js config ---- */
+
+var count_particles, stats, update;
+stats = new Stats;
+stats.setMode(0);
+stats.domElement.style.position = 'absolute';
+stats.domElement.style.left = '0px';
+stats.domElement.style.top = '0px';
+document.body.appendChild(stats.domElement);
+count_particles = document.querySelector('.js-count-particles');
+update = function() {
+  stats.begin();
+  stats.end();
+  if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+  }
+  requestAnimationFrame(update);
+};
+requestAnimationFrame(update);
+            </script>
+
+</body>
+
+</html>

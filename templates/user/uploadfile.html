@@ -1,0 +1,87 @@
+{% extends 'base/base.html' %}
+<html>
+
+<head>
+    {% load static %}
+   
+
+
+
+</head>
+
+<body style="background-color:#2f4050; height: 100%;">
+    {% block content %}
+
+
+    <style>
+        .onoffswitch-label:before {
+            border: 2px solid #1AB394;
+        }
+
+        .onoffswitch-label:after {
+            border: 2px solid red;
+        }
+
+        .onoffswitch-inner:before {
+            content: " ";
+            padding-left: 7px;
+            background-color: #1AB394;
+            color: #FFFFFF;
+        }
+
+        .onoffswitch-inner:after {
+            content: " ";
+            padding-right: 7px;
+            background-color: rgb(245, 8, 8);
+            color: #919191;
+            text-align: right;
+        }
+    
+    </style>
+
+    <center>
+
+        <div class="col-lg-12">
+            <div class="panel-body">
+                <div class="ibox float-e-margins" style="margin-bottom : 0px !important;">
+                    <div>
+                        <p>
+                            <span style="color: seagreen;"><b>Upload Data File</b></span>
+                        </p>
+                    </div>
+
+                    <!-- Option for add users -->
+                    <div>
+                            <span style="color: red;">{{error_string}}</span>
+                        <!-- modal for add user -->
+                            <form action="{% url 'file_upload' %}" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <p>{{ form.non_field_errors }}</p>
+                                <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+                                <p>
+                                    {{ form.docfile.errors }}
+                                    {{ form.docfile }}
+                                </p>
+                                <p><input type="submit" value="Upload" /></p>
+                            </form>
+                        </div>
+                       
+                        
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </center>
+
+    <!-- Page-Level Scripts -->
+    <script>
+        
+       
+    </script>
+
+    {% endblock %}
+</body>
+
+</html>

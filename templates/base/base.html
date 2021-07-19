@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <link" type="image/gif" /> -->
+    <link rel="icon" href="{% static 'logo/logo.png' %}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File Upload by Shreya Alok</title>
+
+
+    <script src="{% static 'base/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'base/js/jquery-ui-1.10.4.min.js' %}"></script>
+    <script src="{% static 'base/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'base/js/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'base/js/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'base/js/jquery.jeditable.js' %}"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'base/js/inspinia.js' %}"></script>
+    <script src="{% static 'base/js/pace.min.js' %}"></script>
+    <script src="{% static 'base/js/datatables.min.js' %}"></script>
+    <script src="{% static 'base/js/dataTables.select.min.js' %}"></script>
+
+
+
+
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'base/css/jquery-ui.min.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'base/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'base/css/animate.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/datatables.min.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'base/css/font-awesome.css' %}" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'base/css/style.css' %}" />
+
+
+
+</head>
+
+<body style="height:100%;">
+    <div id="wrapper">
+        {% include "user/includes/dashboard_admin.html" %}
+        <div id="page-wrapper" class="gray-bg">
+            {% include "base/includes/header.html" %}
+            <!-- <div class="row" style="max-height: 90vh;overflow-y: scroll;"></div> in place of data tables in scroll-->
+            <div class="row">
+                {% block content %} {% endblock %}
+            </div>
+            {% include "base/includes/footer.html" %}
+        </div>
+    </div>
+</body>
+
+</html>
