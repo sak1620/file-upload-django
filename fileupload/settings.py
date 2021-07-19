@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'fileupload', #database name
         'USER': 'postgres',     #user name
-        'PASSWORD': 'root', #password for db connection
+        'PASSWORD': 'password', #password for db connection
         'HOST': 'localhost',
         'PORT': '5432',
     }
